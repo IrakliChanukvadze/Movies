@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+$main-bg: #f4f4f2;
+$container-bg: #151e2e;
+$text-main: #fff;
+$text-main-black: #000;
+$text-secondary: #55585f;
+$font-Montserrat: "Montserrat", sans-serif;
+
+@mixin container-width {
+  width: 90vw;
+  margin: auto;
+}
