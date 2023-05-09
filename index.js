@@ -6,7 +6,6 @@ let myListElements = "";
 let type = "";
 
 const setMyVar = (value) => {
-  console.log(value);
   myVar = value;
   return (item) => render(item);
 };
@@ -33,9 +32,18 @@ fetcher(
 );
 
 myNavList.forEach((value) => {
-  myListElements += `<p class=${value.name}>${value.name}</p>`;
+  const navList = document.querySelector(".nav-items");
+  const navP = document.createElement("p");
+  navP.classList.add(value.name);
+  navP.innerText = value.name;
+
+  navList.appendChild(navP);
+  // const before = getComputedStyle(
+  //   document.querySelector(`.${value.name}`),
+  //   "::before"
+  // );
 });
-document.querySelector(".nav-items").innerHTML = myListElements;
+
 myNavList.forEach((value) => {
   document.querySelector(`.${value.name}`).addEventListener("click", () => {
     fetcher(value.url);
