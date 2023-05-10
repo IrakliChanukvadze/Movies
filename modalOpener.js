@@ -13,7 +13,7 @@ const close = (dialogModal, blurCont) => {
     blurCont.style.display = "none";
     dialogModal.close();
     dialogModal.classList.remove("hide");
-  }, 1000);
+  }, 500);
 };
 
 export const openModal = (content) => {

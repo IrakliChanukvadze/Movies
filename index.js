@@ -2,8 +2,6 @@ import { myNavList } from "./navLinks.js";
 import { createComponent } from "./createMovieComponent.js";
 
 let myVar;
-let myListElements = "";
-let type = "";
 
 const setMyVar = (value) => {
   myVar = value;
@@ -27,9 +25,9 @@ const render = (className) => {
   });
 };
 
-fetcher(
-  "https://api.themoviedb.org/3/trending/all/day?api_key=dbfdeb12dc114137c3eeb9635154dd89&append_to_response=videos"
-);
+// fetcher(
+//   "https://api.themoviedb.org/3/trending/all/day?api_key=dbfdeb12dc114137c3eeb9635154dd89&append_to_response=videos"
+// );
 
 myNavList.forEach((value) => {
   const navList = document.querySelector(".nav-items");
@@ -45,8 +43,26 @@ myNavList.forEach((value) => {
 });
 
 myNavList.forEach((value) => {
-  document.querySelector(`.${value.name}`).addEventListener("click", () => {
-    fetcher(value.url);
-    type = value.name;
+  const listItem = document.querySelector(`.${value.name}`);
+  listItem.addEventListener("click", () => {
+    window.location.href = `/?query=${value.name}`;
+  });
+});
+// debugger;
+console.log(window.location);
+window.addEventListener("DOMContentLoaded", (event) => {
+  const URL = event.target.URL;
+
+  if (!event.target.location.search) {
+    window.location.href = "http://127.0.0.1:5500/?" + `query=Trending`;
+  }
+  myNavList.forEach((item) => {
+    const listItem = document.querySelector(`.${item.name}`);
+    if (URL.endsWith(item.name)) {
+      listItem.classList.add("active");
+      fetcher(item.url);
+    } else {
+      listItem.classList.remove("active");
+    }
   });
 });
