@@ -49,7 +49,6 @@ myNavList.forEach((value) => {
   });
 });
 // debugger;
-console.log(window.location);
 window.addEventListener("DOMContentLoaded", (event) => {
   const URL = event.target.URL;
 
@@ -66,3 +65,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 });
+
+// window.addEventListener("beforeunload", (e) => {
+//   // e.preventDefault();
+//   e.preventDefault();
+//   console.log("asdasd");
+//   alert("are you shure");
+// });

@@ -7,7 +7,7 @@ export const createComponent = (value) => {
       ? `https://image.tmdb.org/t/p/w300${value.backdrop_path}`
       : "/images/defaultImg.png"
   }`;
-  if (title.length > 20) {
+  if (title.length > 30) {
     title = `${title.slice(0, 31)}...`;
   }
   const component = document.createElement("div");
